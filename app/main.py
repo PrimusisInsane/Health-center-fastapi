@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.core.config import settings
-from app.api.routers import health, users, tasks
+from app.api.routers import health, users, tasks, project
 from app.middleware.middleware_1 import TimingMiddleware
 from app.exceptions.exception_handlers import (
     http_exception_handler,
@@ -19,6 +19,7 @@ app = FastAPI(
 app.include_router(health.router, tags=["Health"])
 app.include_router(users.router, tags=["Users"])
 app.include_router(tasks.router, tags=["Tasks"])
+app.include_router(project.router, tags = ["Project"])
 
 app.add_middleware(TimingMiddleware)
 
