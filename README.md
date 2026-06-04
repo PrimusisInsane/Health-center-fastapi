@@ -17,7 +17,7 @@
 
 
 ## End point Documentation 
-* http://127.0.0.1:8000/users/{user_1}  This for example gives you the user's details if their id_number is 1. Simply replacing users and {users_1} with projects and tasks which give you the details for said task for project
+* http://127.0.0.1:8000/users/1  This for example gives you the user's details if their id_number is 1. Simply replacing users with projects and tasks which give you the details for said task or project
 for e.g.
 * http://127.0.0.1:8000/tasks/1
  * http://127.0.0.1:8000/projects/1
@@ -25,3 +25,6 @@ for e.g.
 * http://127.0.0.1:8000/tasks
 * http://127.0.0.1:8000/users
  * http://127.0.0.1:8000/users/1
+
+
+ ### Ofcourse you will have to create tables from the start for the .../1 endpoint to work, otherwise you will get .....not found error!!! 
