@@ -3,73 +3,73 @@ from pydantic import BaseModel
 
 router = APIRouter()
 
-tasks_db = []
-task_id_counter = 1
+project_db = []
+project_id_counter = 1
 
 
 class ProjectCreate(BaseModel):
-    title: str
-    description: str | None = None
-    completed: bool = False
+    Project_Name: str
+    Project_Details: str | None = None
+    status: bool = False
 
 
-@router.post("/tasks")              # CREATE TASK
-def create_task(task: ProjectCreate):
-    global task_id_counter
+@router.post("/projects")              # CREATE TASK
+def create_project(project: ProjectCreate):
+    global project_id_counter
 
-    task_data = task.model_dump()
-    task_data["id"] = task_id_counter
-    task_id_counter += 1
+    project_data = project.model_dump()
+    project_data["id"] = project_id_counter
+    project_id_counter += 1
 
-    tasks_db.append(task_data)
+    project_db.append(project_data)
 
     return {
-        "message": "Task created",
-        "task": task_data
+        "message": "Project created",
+        "project": project_data
     }
 
 
 
-@router.get("/tasks")       # GET ALL TASKS
-def get_tasks():
-    return tasks_db
+@router.get("/projects")       # GET ALL TASKS
+def get_project():
+    return project_db
 
 
 
-@router.get("/tasks/{task_id}")     # GET TASK BY ID
-def get_task(task_id: int):
-    for task in tasks_db:
-        if task["id"] == task_id:
-            return task
+@router.get("/projects/{project_id}")     # GET TASK BY ID
+def get_project(project_id: int):
+    for project in project_db:
+        if project["id"] == project_id:
+            return project
 
-    return {"message": "Task not found"}
+    return {"message": "Project not found"}
 
 
 
-@router.put("/tasks/{task_id}")         # UPDATE TASK (PUT)
-def update_task(task_id: int, updated_task: ProjectCreate):
-    for task in tasks_db:
-        if task["id"] == task_id:
-            task["title"] = updated_task.title
-            task["description"] = updated_task.description
-            task["completed"] = updated_task.completed
+@router.put("/projects/{project_id}")         # UPDATE TASK (PUT)
+def update_project(project_id: int, updated_project: ProjectCreate):
+    for project in project_db:
+        if project["id"] == project_id:
+            project["Project_Name"] = updated_project.Project_Name
+            project["Project_Details"] = updated_project.Project_Details
+            project["status"] = updated_project.status
 
             return {
-                "message": "Task updated",
-                "task": task
+                "message": "Project updated",
+                "project": project
             }
 
-    return {"message": "Task not found"}
+    return {"message": "Project not found"}
 
 
-@router.delete("/tasks/{task_id}")              # DELETE TASK
-def delete_task(task_id: int):
-    for index, task in enumerate(tasks_db):
-        if task["id"] == task_id:
-            removed = tasks_db.pop(index)
+@router.delete("/projects/{project_id}")              # DELETE TASK
+def delete_project(project_id: int):
+    for index, project in enumerate(project_db):
+        if project["id"] == project_id:
+            removed = project_db.pop(index)
             return {
-                "message": "Task deleted",
-                "task": removed
+                "message": "Project deleted",
+                "Project": removed
             }
 
-    return {"message": "Task not found"}
+    return {"message": "Project not found"}
