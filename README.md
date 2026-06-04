@@ -19,5 +19,9 @@
 ## End point Documentation 
 * http://127.0.0.1:8000/users/{user_1}  This for example gives you the user's details if their id_number is 1. Simply replacing users and {users_1} with projects and tasks which give you the details for said task for project
 for e.g.
-* http://127.0.0.1:8000/users/{task_1}
- * http://127.0.0.1:8000/users/{project_1}
+* http://127.0.0.1:8000/tasks/1
+ * http://127.0.0.1:8000/projects/1
+* http://127.0.0.1:8000/projects
+* http://127.0.0.1:8000/tasks
+* http://127.0.0.1:8000/users
+ * http://127.0.0.1:8000/users/1
