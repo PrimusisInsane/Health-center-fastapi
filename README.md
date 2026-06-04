@@ -1,6 +1,6 @@
-# Week 2- Using FastAPI and adding custom Starlette to add endpoints, middleware and updated docs
+# Week 2- Using FastAPI and adding custom Starlette, add endpoints, middleware and updated docs
  
-  ###  The project package contains middlewares, http exceptions, routers in its api, currently using fastapi and use CRUD operations on users (/users) and hospital tasks (/tasks)
+  ###  The project package contains middlewares, http exceptions, routers in its api, currently using fastapi and use CRUD operations on users (/users) and hospital tasks (/tasks) and also projects (/projects)
 
 
 ## Key Features
@@ -13,7 +13,7 @@
 
 ## Requirements
 
-* Requirements.txt
+* Requirements.txt will give details of all those required files 
 
 
 ## End point Documentation 
@@ -25,6 +25,57 @@ for e.g.
 * http://127.0.0.1:8000/tasks
 * http://127.0.0.1:8000/users
  * http://127.0.0.1:8000/users/1
-
+* http://127.0.0.1:8000/docs - Just loads up FastAPI's Swagger UI
 
  ### Ofcourse you will have to create tables from the start for the .../1 endpoint to work, otherwise you will get .....not found error!!! 
+
+
+
+
+
+ ## API Section
+
+* Upon creating, let's say a user, we get something like this on the response
+
+{
+  "message": "User created",
+  "user": {
+    "name": "Pratham",
+    "email": "pratham432@gmail.com",
+    "age": 25,
+    "id": 1
+  }
+}
+
+
+* Upon updating the very same user, this is the response
+
+{
+  "message": "User updated",
+  "user": {
+    "name": "Pratham",
+    "email": "pratham4342@gmail.com",
+    "age": 25,
+    "id": 1
+  }
+}
+
+
+
+* And Deleting the user gets: 
+
+{
+  "message": "User deleted",
+  "user": {
+    "name": "Pratham",
+    "email": "pratham4342@gmail.com",
+    "age": 25,
+    "id": 1
+  }
+}
+
+
+#### To just get to "Pratham" details the URL would be  
+
+* http://127.0.0.1:8000/users/1    WE USE METHODS LIKE /PUT, /POST, /GET, /DELETE to operate these datas. 
+
