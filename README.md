@@ -49,7 +49,7 @@ for e.g.
 ```
 
 * Upon updating the very same user, this is the response
-
+```JSON
 {
   "message": "User updated",
   "user": {
@@ -59,11 +59,11 @@ for e.g.
     "id": 1
   }
 }
-
+```
 
 
 * And Deleting the user gets: 
-
+```JSON
 {
   "message": "User deleted",
   "user": {
@@ -73,7 +73,7 @@ for e.g.
     "id": 1
   }
 }
-
+```
 
 #### To just get to "Pratham" details the URL would be  
 
