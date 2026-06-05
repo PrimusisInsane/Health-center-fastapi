@@ -36,7 +36,7 @@ for e.g.
  ## API Section
 
 * Upon creating, let's say a user, we get something like this on the response
-
+```JSON
 {
   "message": "User created",
   "user": {
@@ -46,7 +46,7 @@ for e.g.
     "id": 1
   }
 }
-
+```
 
 * Upon updating the very same user, this is the response
 
